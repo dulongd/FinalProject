@@ -5,10 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <body class="backgroundImage">
-
-    <h2 class="text-md-left font-weight-bold" style="color:darkslateblue; margin-left:220px;">Edit</h2>
-    <div class="container jumbotron justify-content-center  bg-white mt-5" style="width:60%; border:1px solid black;">
-
+    <h2 class="text-md-left font-weight-bold" style="color:#2E4756E6; margin-left: 220px;">Edit</h2>
+    <div class="container jumbotron justify-content-center  shadow bg-white mt-5" style="width:60%; border:1px solid black;">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
@@ -19,8 +17,6 @@
                 <div class="col-7">
                     <input asp-for="Name" class="form-control" />
                 </div>
-
-
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="col-7 offset-4">
@@ -32,35 +28,8 @@
             </div>
         </form>
     </div>
-
-
-
-    @*<h1>Edit</h1>
-
-        <h4>Category</h4>
-
-        <div class="row">
-            <div class="col-md-4">
-                <form asp-action="Edit">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input type="hidden" asp-for="Id" />
-                    <div class="form-group">
-                        <label asp-for="Name" class="control-label"></label>
-                        <input asp-for="Name" class="form-control" />
-                        <span asp-validation-for="Name" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Save" class="btn btn-primary" />
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <div>
-            <a asp-action="Index">Back to List</a>
-        </div>*@
 </body>
 
-    @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

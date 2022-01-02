@@ -7,9 +7,9 @@
 
 
 <body class="backgroundImage">
-    <h2 class="text-info text-center pb-4">Create Category</h2>
+    <h2 class="text-left font-weight-bold pt-1" style="color:#2E4756E6; margin-left:50px;">Add Category</h2>
     <form method="post" asp-action="Create">
-        <div class="container d-md-block justify-content-center align-content-center bg-white  shadow m-md-5 p-md-5 w-75">
+        <div class="container border border-info d-md-block justify-content-center align-content-center bg-white  shadow m-md-5 p-md-5 w-75">
             <partial name="_StatusMessage" model="Model.StatusMessage" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group row">
@@ -35,6 +35,6 @@
 
 
 
-    @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

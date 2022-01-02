@@ -19,9 +19,9 @@
 
             <p class="text-center font-weight-bold" style="font-family:'Yu Gothic';">
                 @Html.DisplayFor(model => model.Title)
-            
-          
-                </p>
+
+
+            </p>
         </div>
         <form asp-action="Delete" class="d-flex justify-content-center align-content-center p-5">
             <input type="hidden" asp-for="Id" />
@@ -31,63 +31,6 @@
             </div>
 
         </form>
-
-
-
-
-        @*<form method="post" class="ml-4" asp-action="Delete">
-
-
-
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group row">
-                <div class="col-2">
-                    @Html.DisplayNameFor(model => model.Title)
-                </div>
-                <div class="col-5" style=" border:2px solid #000000;">
-                    @Html.DisplayFor(model => model.Title)
-
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-2">
-                    @Html.DisplayNameFor(model => model.Subtitle)
-                </div>
-                <div class="col-5" style=" border:2px solid #000000;">
-                    @Html.DisplayFor(model => model.Subtitle)
-                </div>
-
-            </div>
-            <div class="form-group row">
-                <div class="col-2">
-                    @Html.DisplayNameFor(model => model.Status)
-
-                </div>
-                <div class="col-5" style=" border:2px solid #000000;">
-                    @Html.DisplayFor(model => model.Status)
-                </div>
-
-
-            </div>
-            <div class="form-group row">
-                <div class="col-2">
-                    @Html.DisplayNameFor(model => model.Category)
-                </div>
-                <div class="col-5" style=" border:2px solid #000000;">
-
-                    @Html.DisplayFor(model => model.Category.Name)
-                </div>
-
-            </div>
-            <div class="form-group row">
-                <div class="col-5 offset-2">
-                    <input type="hidden" asp-for="Id" />
-                    <partial name="_DeleteAndBacktolistButton" />
-                </div>
-
-            </div>
-    </div>*@
-    
     </div>
 </body>
 
@@ -95,6 +38,6 @@
 
 
 
-    @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
