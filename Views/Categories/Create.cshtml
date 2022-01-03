@@ -1,4 +1,4 @@
-﻿@model FinalProject.Models.Category
+﻿@model FinalProject.Models.ViewModels.CategoryViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -7,38 +7,34 @@
 
 
 <body class="backgroundImage">
-    <h2 class="text-info text-center pb-4">Create Category</h2>
+    <h2 class="text-left font-weight-bold pt-1" style="color:#2E4756E6; margin-left:50px;">Add Category</h2>
     <form method="post" asp-action="Create">
-        <div class="border backgroundWhite h-50">
-
+        <div class="container border border-info d-md-block justify-content-center align-content-center bg-white  shadow m-md-5 p-md-5 w-75">
+            <partial name="_StatusMessage" model="Model.StatusMessage" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <div class="form-group row pt-md-4">
-                <div class="col-3">
-                    <label asp-for="Name" class="col-form-label"></label>
-
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Category.Name" class="col-form-label"></label>
                 </div>
-                <div class="col-8">
-                    <input asp-for="Name" class="form-control" />
-
+                <div class="col-9">
+                    <input asp-for="Category.Name" class="form-control" />
                 </div>
-                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group row">
-                <div class="col-8 offset-3">
+                <div class="col-9 offset-2">
                     <partial name="_CreateAndBackButtonView" />
-
                 </div>
-
             </div>
+
         </div>
     </form>
-    </body>
+
+</body>
 
 
 
 
 
-    @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
