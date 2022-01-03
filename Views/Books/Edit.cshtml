@@ -1,7 +1,7 @@
 ﻿<!--
 File Name: Views/Books/Edit.cshtml
 Description: Edit view for Book Model
-Author: Payal Swarnkar, Savitha Kulaolinathan
+Author: Payal Swarnkar, Savitha Kulaolinathan, Danielle DuLong
 -->
 @model FinalProject.Models.Book
 @{
@@ -28,6 +28,38 @@ Author: Payal Swarnkar, Savitha Kulaolinathan
             </div>
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
+        @if (Model.Image != null)
+        {
+            <div class="form-group row ml-2">
+                <div class="col-7 offset-4">
+                    <img src="@Model.Image" alt="Cover page for @Model.Title" />
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="form-group row ml-2">
+                <div class="col-7 offset-4 default-image">
+                    <p>No image provided.</p>
+                </div>
+            </div>
+        }
+        <div class="form-group row ml-2">
+            <div class="col-4">
+                <label asp-for="Image" class="col-form-label"></label>
+            </div>
+            <div class="col-7">
+                <input asp-for="Image" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row ml-2">
+            <div class="col-4">
+                <label asp-for="Subtitle" class="col-form-label"></label>
+            </div>
+            <div class="col-7">
+                <textarea asp-for="Subtitle" class="form-control"></textarea>
+            </div>
+        </div>
         <div class="form-group row ml-2">
             <div class="col-4">
                 <label asp-for="Authors" class="col-form-label"></label>
@@ -39,10 +71,10 @@ Author: Payal Swarnkar, Savitha Kulaolinathan
         </div>
         <div class="form-group row ml-2">
             <div class="col-4">
-                <label asp-for="Status" class="col-form-label"></label>
+                <label asp-for="Description" class="col-form-label"></label>
             </div>
             <div class="col-7">
-                <select asp-for="Status" asp-items="Html.GetEnumSelectList<Book.EStatus>()" class="form-control"></select>
+                <textarea asp-for="Description" class="form-control"></textarea>
             </div>
         </div>
         <div class="form-group row ml-2">
@@ -54,6 +86,66 @@ Author: Payal Swarnkar, Savitha Kulaolinathan
             </div>
         </div>
         <div class="form-group row ml-2">
+            <div class="col-4">
+                <label asp-for="ISBN13" class="col-form-label"></label>
+            </div>
+            <div class="col-7">
+                <input asp-for="ISBN13" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row ml-2">
+            <div class="col-4">
+                <label asp-for="MoreInfoUrl" class="col-form-label"></label>
+            </div>
+            <div class="col-5">
+                <input asp-for="MoreInfoUrl" class="form-control" />
+            </div>
+            <div class="col-1">
+                <a href="@Model.MoreInfoUrl" target="_blank" class="btn btn-secondary">View</a>
+            </div>
+        </div>
+        <div class="form-group row ml-2">
+            <div class="col-4">
+                <label asp-for="Year" class="col-form-label"></label>
+            </div>
+            <div class="col-7">
+                <input asp-for="Year" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group row ml-2">
+            <div class="col-4">
+                <label asp-for="Status" class="col-form-label"></label>
+            </div>
+            <div class="col-7">
+                <select disabled="disabled" asp-for="Status" asp-items="Html.GetEnumSelectList<Book.EStatus>()" class="form-control"></select>
+            </div>
+        </div>
+<!--    <div class="form-group row ml-2">
+        <div class="col-4">
+            <label asp-for="UserId" class="col-form-label">Checked Out By User</label>
+        </div>
+        <div class="col-7">
+            <input disabled="disabled" asp-for="UserId" class="form-control"/>
+        </div>
+    </div>
+    <div class="form-group row ml-2">
+        <div class="col-4">
+            <label asp-for="CheckOutDate" class="col-form-label"></label>
+        </div>
+        <div class="col-7">
+            <input disabled="disabled" asp-for="CheckOutDate" class="form-control"/>
+        </div>
+    </div>
+    <div class="form-group row ml-2">
+        <div class="col-4">
+            <label asp-for="DueDate" class="col-form-label"></label>
+        </div>
+        <div class="col-7">
+            <input asp-for="DueDate" class="form-control"/>
+        </div>
+    </div>
+-->
+    <div class="form-group row ml-2">
             <div class="col-7 offset-4">
                 <partial name="_EditAndBackTolistButton" />
             </div>

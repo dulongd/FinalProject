@@ -121,7 +121,7 @@ namespace FinalProject.Controllers
         // POST: Books/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Subtitle,ISBN13,MoreInfoURL,Authors,Year,Status,CategoryId")] Book book)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Subtitle,ISBN13,MoreInfoUrl,Authors,Year,Status,CategoryId,Image,Description,CheckOutDate,DueDate,UserId")] Book book)
         {
             if (id != book.Id)
             {
