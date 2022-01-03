@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+File Name: ApiSearchResult.cs
+Description: Convert API Search Result page to object in order to parse results and get list of books returned
+Author: Danielle DuLong
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

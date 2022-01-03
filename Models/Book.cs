@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+File Name: Book.cs
+Description: Book Model for Code First Database
+Author: Danielle DuLong, Kavitha Ponnusamy
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -40,6 +45,7 @@ namespace FinalProject.Models
 
         public DateTime? CheckOutDate { get; set; }
         
+        [Display(Name="Due Date")]
         public DateTime? DueDate { get; set; }
 
         [Required]

@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+File Name: EmailSender.cs
+Description: 
+Author: UNKNOWN 
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

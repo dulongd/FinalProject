@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+File Name: BooksController.cs
+Description: CRUD Operations for Book Model
+Author: Danielle DuLong, Kavitha Ponnusamy
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,7 +21,7 @@ namespace FinalProject.Controllers
     public class BooksController : Controller
     {
         private readonly ApplicationDbContext _context;
-
+        
         public BooksController(ApplicationDbContext context)
         {
             _context = context;
@@ -58,6 +64,7 @@ namespace FinalProject.Controllers
 
 
         //POST: Books/Create
+        //Create book using details provided by IT Bookstore API (version 1.0)
         [HttpPost]
         public async Task<IActionResult> Create(string isbn13, int categoryId)
         {
@@ -182,6 +189,7 @@ namespace FinalProject.Controllers
 
 
         //GET: Books/SearchByKeyword/String
+        //Allows user to search application database (not API) by Category, Title, or Authors columns for books using a keyword
         public async Task<IActionResult> SearchByKeyword(string keyword)
         {
             var books = await _context.Books.Include(b => b.Category)

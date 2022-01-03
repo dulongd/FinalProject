@@ -1,4 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/*
+File Name: ApiController.cs
+Description: Search API for books and get more book details from API based on ISBN
+Author: Danielle DuLong, Kavitha Ponnusamy
+ */
+
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +34,9 @@ namespace FinalProject.Controllers.Api
             _context = context;
         }
 
+
+        // api.itbook.store/1.0/search/keyword
+        //keyword == Category Name
         public async Task<IActionResult> SearchAPI(int categoryId)
         {
             var category = await _context.Categories.Where(x => x.Id == categoryId).FirstOrDefaultAsync();
@@ -44,13 +53,15 @@ namespace FinalProject.Controllers.Api
                 allBooks.Add(book);
             }
 
+
+            //API is paginated, if empty page is reached total == 0
             if (!result.total.Equals("0"))
             {
                 var pageNumber = Int32.Parse(result.page);
                 var quit = false;
                 var nextResult = new ApiSearchResult();
 
-
+                //API is paginated, keep returning pages until max desired results reached (or no results left)
                 while (!quit && pageNumber < MAX_PAGE_NUMBER)
                 {
                     streamTask = _client.GetStreamAsync(SD.SearchAPIPath + keyword + "/" + pageNumber);
@@ -76,6 +87,8 @@ namespace FinalProject.Controllers.Api
 
         }
 
+        //api.itbook.store/1.0/books/1234567891011
+        //Searching API by ISBN provides additional details not provided by keyword search (authors, Year, Description, etc.)
         public async Task<ApiSearchResultViewModel> GetMoreDetailsByISBN(string isbn)
         {
             var streamTask = _client.GetStreamAsync(SD.GetByISBNPath + isbn);
