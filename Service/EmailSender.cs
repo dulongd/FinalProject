@@ -1,7 +1,7 @@
 ﻿/*
 File Name: EmailSender.cs
-Description: 
-Author: UNKNOWN 
+Description: Sending emails to the user after checked out the books.
+Author: Savitha , Kavitha
  */
 using System;
 using System.Collections.Generic;

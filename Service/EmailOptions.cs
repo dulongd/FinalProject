@@ -1,7 +1,7 @@
 ﻿/*
 File Name: EmailOptions.cs
-Description: 
-Author: UNKNOWN
+Description: Declaring sendgrid key property
+Author: Savitha
  */
 using System;
 using System.Collections.Generic;
