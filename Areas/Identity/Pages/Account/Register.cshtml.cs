@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+File Name: Areas/Identity /Pages/Account/Register.cshtml.cs
+Description: Startup
+Author: Kavitha Ponnusamy, Payal Swarnkar, Savitha Kulaolinathan
+*/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -67,14 +73,18 @@ namespace FinalProject.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
 
             [Required]
+            [Display(Name="First Name")]
             public string FirstName { get; set; }
 
+            [Display(Name = "Last Name")]
             public string LastName { get; set; }
 
             [Required]
+            [Display(Name = "Street Address")]
             public string StreetAddress { get; set; }
 
             [Required]
+            [Display(Name = "Phone Number")]
             public string PhoneNumber { get; set; }
 
             [Required]
@@ -84,6 +94,7 @@ namespace FinalProject.Areas.Identity.Pages.Account
             public string State { get; set; }
 
             [Required]
+            [Display(Name = "Postal Code")]
             public string  PostalCode{ get; set; }
         }
 
@@ -117,7 +128,7 @@ namespace FinalProject.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(user, "Admin");
+                    await _userManager.AddToRoleAsync(user, "User");
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

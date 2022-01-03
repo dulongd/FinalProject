@@ -1,3 +1,8 @@
+/*
+ File Name: Startup.cs
+Description: Startup
+Author: Danielle DuLong, Josh Bacon, Kavitha Ponnusamy, Payal Swarnkar, Savitha Kulaolinathan
+*/
 using FinalProject.Data;
 using FinalProject.Service;
 using Microsoft.AspNetCore.Builder;

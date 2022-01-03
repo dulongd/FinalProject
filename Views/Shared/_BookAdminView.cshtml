@@ -1,4 +1,9 @@
-﻿@model IEnumerable<FinalProject.Models.Book>
+﻿<!--
+File Name: Views/Shared/_BookAdminView.cshtml
+Description: 
+Author: UNKNOWN
+-->
+@model IEnumerable<FinalProject.Models.Book>
 
 <div class="container p-md-3">
     <div class="row pt-md-4">
@@ -46,7 +51,8 @@
                             @Html.DisplayFor(modelItem => item.Category.Name)
                         </td>
                         <partial name="_TableButtonPartialView" class="col-md-1 text-center" model="item.Id" />
-                    </tr>}
+                    </tr>
+}
             </tbody>
         </table> }
     else

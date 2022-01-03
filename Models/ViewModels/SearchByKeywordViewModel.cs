@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+File Name: SearchByKeywordViewModel.cs
+Description: View model for returning results from SearchByKeyword
+Author: Danielle DuLong
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

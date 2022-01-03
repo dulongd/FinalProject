@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+File Name: CategoriesController.cs
+Description: CRUD Operations for Category Model
+Author: Danielle DuLong, Kavitha Ponnusamy
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

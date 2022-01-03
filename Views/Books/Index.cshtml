@@ -1,4 +1,9 @@
-﻿@model IEnumerable<Book>
+﻿<!--
+File Name: Views/Books/Index.cshtml
+Description: Index view for Book Model
+Author: Payal Swarnkar, Savitha Kulaolinathan
+-->
+@model IEnumerable<Book>
 
 @{
     ViewData["Title"] = "Index";
@@ -22,7 +27,7 @@
 
 </body>
 
-@section Scripts{ 
+@section Scripts{
 
     <script type="text/javascript">
     function checkOut(id) {
@@ -33,14 +38,14 @@
             url: checkInurl,
             type: 'GET',
             success: function (response) {
-                
+
                 bootbox.alert({
                     message: response,
                     callback: function () {
                         window.location.href = indexUrl;
                     }
                 });
-                
+
             },
             error: function () {
 

@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+File Name: ApiSearchResultViewModel.cs
+Description: DTO for book details retrieved from the API
+Author: Danielle DuLong
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
