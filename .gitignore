@@ -362,6 +362,8 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
+appsettings.json
+SendGridKey.txt
 
  git rm --cached appsettings.json
 

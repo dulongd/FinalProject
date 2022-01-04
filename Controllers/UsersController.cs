@@ -49,8 +49,8 @@ namespace FinalProject.Controllers
                 bookInDb.UserId = userId;
                 bookInDb.Status = "1";
                 _context.SaveChanges();
-                var message = title + " checkedout successfully";
-                await _emailSender.SendEmailAsync(user.Email, "Book Checked out", message);
+                var message = title + " checked out successfully";
+                await _emailSender.SendEmailAsync(user.Email, "Book Checked Out", message);
                 return "Book checked out successfully. Your due date is " + book.DueDate.Value.ToShortDateString() + "<br /><br />"
                     + "Email sent to " + user.Email + " successfully. Click OK to continue.";
 
