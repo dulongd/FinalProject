@@ -64,10 +64,19 @@ Author: Savitha, Payal, Josh
                     <p>@Html.DisplayFor(modelItem => item.Subtitle)</p>
                     <p> @Html.DisplayFor(modelItem => item.Category.Name)</p>
                     @if (User.Identity.IsAuthenticated)
-
                     {
-                        <input type="button" id="checkout" class="btn btn-primary text-white"
-                               onclick=checkOut("@item.Id") value="@Enum.Parse(typeof(Book.EStatus), item.Status)" />
+                        
+                        if (item.Status.Equals("0"))
+                        {
+                            <input type="button" id="checkout" class="btn btn-primary text-white"
+                                   onclick=checkOut(@item.Id) value="Check Out" />
+                        }
+                        else
+                        {
+                            <input disabled type="button" id="checkout" class="btn btn-primary text-white"
+                                   onclick=checkOut("@item.Id") value="Unavailable" />
+                        }
+                        
                     }
                     else
                     {

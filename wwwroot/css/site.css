@@ -120,6 +120,17 @@ body {
     font-size: 1.5em; 
 }
 
+.admin {
+    display: block;
+    text-align: right;
+    font-weight: bold;
+    color: white;
+    padding: 5px 30px;
+    font-size: 30px;
+    background-color: red;
+    margin-top: -20px;
+}
+
 
     
 

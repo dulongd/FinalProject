@@ -128,12 +128,22 @@ Author: Payal Swarnkar, Savitha Kulaolinathan
             <div class="col-4">
                 <label asp-for="Status" class="col-form-label"></label>
             </div>
-            <div class="col-5">
-                <input readonly asp-for="Status" value="@Enum.Parse(typeof(Book.EStatus), Model.Status)" class="form-control" />
-            </div>
-            <div class="col-2">
-                <div class="btn btn-secondary" onclick="CheckInBook('@Model.Id')">Check In</div>
-            </div>
+
+            @if (Model.Status.Equals("1"))
+            {
+                <div class="col-5">
+                    <input readonly asp-for="Status" value="@Enum.Parse(typeof(Book.EStatus), Model.Status)" class="form-control" />
+                </div>
+                <div class="col-2">
+                    <div class="btn btn-secondary" onclick="CheckInBook('@Model.Id')">Check In</div>
+                </div>
+            }
+            else
+            {
+                <div class="col-7">
+                    <input readonly asp-for="Status" value="@Enum.Parse(typeof(Book.EStatus), Model.Status)" class="form-control" />
+                </div>
+            }
         </div>
 
 

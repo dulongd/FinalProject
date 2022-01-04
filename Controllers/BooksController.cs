@@ -132,6 +132,10 @@ namespace FinalProject.Controllers
             {
                 try
                 {
+                    var statusText = book.Status;
+                    var status = (int)Enum.Parse(typeof(Book.EStatus), statusText);
+                    book.Status = status.ToString();
+
                     _context.Update(book);
                     await _context.SaveChangesAsync();
                 }
