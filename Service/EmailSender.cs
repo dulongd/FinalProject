@@ -6,6 +6,7 @@ Author: Savitha , Kavitha
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Options;
@@ -14,28 +15,43 @@ using SendGrid.Helpers.Mail;
 
 namespace FinalProject.Service
 {
-    public class EmailSender : IEmailSender { 
+    public class EmailSender : IEmailSender
+    {
         public EmailOptions Options { get; set; }
-    
-        public EmailSender(IOptions<EmailOptions> emailoptions)
+
+        public EmailSender(IOptions<EmailOptions> emailOptions)
         {
-          Options = emailoptions.Value;
+            Options = emailOptions.Value;
         }
-        public Task SendEmailAsync(string email, string subject,string message)
+        public Task SendEmailAsync(string email, string subject, string message)
         {
-            return Excute(Options.SendGridKey, subject, message, email);
+            return Execute(Options.SendGridKey, subject, message, email);
         }
 
-        private async Task Excute(string sendGridKey, string subject, string message, string email)
+        private Task Execute(string sendGridKey, string subject, string message, string email)
         {
-           
+
             var client = new SendGridClient(sendGridKey);
-            var from = new EmailAddress("skskalyan@gmail.com", "ITLibrary");
-            var to = new EmailAddress(email, email);
-            var plainTextContent = message;
-            var htmlContent = "<strong>" + message + "</strong>";
-            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-            await client.SendEmailAsync(msg);
+            var msg = new SendGridMessage()
+            {
+                From = new EmailAddress("danielledulong@gmail.com", "ITLibrary"),
+                Subject = subject,
+                PlainTextContent = message,
+                HtmlContent = message
+            };
+
+            msg.AddTo(new EmailAddress(email));
+
+            try
+            {
+                return client.SendEmailAsync(msg);
+            }
+            catch (Exception e)
+            {
+
+            }
+
+            return null;
         }
     }
 }
