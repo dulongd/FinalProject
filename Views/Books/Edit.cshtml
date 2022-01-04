@@ -12,12 +12,7 @@ Author: Payal Swarnkar, Savitha Kulaolinathan
 
 <body class="backgroundImage">
     <h1 class="text-md-left p-4" style="color: #2E4756E6; margin-left: 115px;">Edit Book</h1>
-    <form method="post" class="container p-md-5
-          justify-content-center
-          align-items-center
-          font-weight-bold w-75
-          rounded bg-white" style=" border: 1px solid black;"
-          asp-action="Edit">
+    <form method="post" class="container p-md-5  justify-content-center align-items-center font-weight-bold w-75 rounded bg-white  shadow  border border-info " asp-action="Edit">
 
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -110,7 +105,7 @@ Author: Payal Swarnkar, Savitha Kulaolinathan
                 <input asp-for="MoreInfoUrl" class="form-control" />
             </div>
             <div class="col-1">
-                <a href="@Model.MoreInfoUrl" target="_blank" class="btn btn-secondary">View</a>
+                <a href="@Model.MoreInfoUrl" target="_blank" class="btn btn-secondary px-4" style="margin-left:10px;">View</a>
             </div>
         </div>
         
