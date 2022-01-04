@@ -119,41 +119,6 @@ namespace FinalProject.Controllers
         }
 
         // POST: Books/Edit/5
-        /*
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Subtitle,ISBN13,MoreInfoUrl,Authors,Year,Status,CategoryId,Image,Description,CheckOutDate,DueDate,UserId")] Book book)
-        {
-            if (id != book.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(book);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!BookExists(book.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name", book.CategoryId);
-            return View(book);
-        }
-        */
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Subtitle,ISBN13,MoreInfoUrl,Authors,Year,Status,CategoryId,Description,Image,UserId,CheckOutDate,DueDate")] Book book)
@@ -239,6 +204,50 @@ namespace FinalProject.Controllers
 
         }
 
+        public async Task<IActionResult> CheckInBook(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
+            var book = await _context.Books
+                .Include(b => b.Category)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            book.CheckOutDate = null;
+            book.DueDate = null;
+            book.UserId = null;
+            book.Status = "0";
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(book);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!BookExists(book.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name", book.CategoryId);
+            return View("Index");
+        }
+
+        
     }
 }

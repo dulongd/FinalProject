@@ -3,6 +3,7 @@ File Name: Views/Books/Edit.cshtml
 Description: Edit view for Book Model
 Author: Payal Swarnkar, Savitha Kulaolinathan
 -->
+@using Microsoft.EntityFrameworkCore
 @model FinalProject.Models.Book
 @{
     ViewData["Title"] = "Edit";
@@ -122,12 +123,16 @@ Author: Payal Swarnkar, Savitha Kulaolinathan
             </div>
         </div>
 
+
         <div class="form-group row ml-2">
             <div class="col-4">
                 <label asp-for="Status" class="col-form-label"></label>
             </div>
-            <div class="col-7">
-                <select asp-for="Status" asp-items="Html.GetEnumSelectList<Book.EStatus>()" class="form-control"></select>
+            <div class="col-5">
+                <input readonly asp-for="Status" value="@Enum.Parse(typeof(Book.EStatus), Model.Status)" class="form-control" />
+            </div>
+            <div class="col-2">
+                <div class="btn btn-secondary" onclick="CheckInBook('@Model.Id')">Check In</div>
             </div>
         </div>
 
@@ -176,5 +181,28 @@ Author: Payal Swarnkar, Savitha Kulaolinathan
 
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    
+    <script>
+
+        function CheckInBook(id) {
+            var params = {id: id};
+            var returnUrl = '@Url.Action("CheckInBook","Books")';
+            var indexUrl = '@Url.Action("Index","Books")';
+            $.ajax({
+                url: returnUrl,
+                method: 'POST',
+                data: params,
+                success: function () {
+                    window.location.href = indexUrl;
+                },
+                error: function (response) {
+                    console.log(response);
+                }
+            })
+        }
+
+    </script>
 }
