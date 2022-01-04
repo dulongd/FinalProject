@@ -18,9 +18,9 @@ namespace FinalProject.Service
     public class EmailSender : IEmailSender { 
         public EmailOptions Options { get; set; }
     
-        public EmailSender(IOptions<EmailOptions> emailoptions)
+        public EmailSender(IOptions<EmailOptions> emailOptions)
         {
-          Options = emailoptions.Value;
+          Options = emailOptions.Value;
         }
         public Task SendEmailAsync(string email, string subject,string message)
         {

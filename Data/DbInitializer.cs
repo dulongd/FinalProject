@@ -28,14 +28,13 @@ namespace ITLibrary.Data
         {
             try
             {
-                if (_dbContext.Database.GetPendingMigrations().Count() > 0)
+                if ((await _dbContext.Database.GetPendingMigrationsAsync()).Any())
                 {
-                    _dbContext.Database.Migrate();
+                    await _dbContext.Database.MigrateAsync();
                 }
             }
             catch (Exception e)
             {
-
             }
 
             if (_dbContext.Roles.Any(r => r.Name == "Admin")) return;
