@@ -1,7 +1,7 @@
 ﻿/*
 File Name: CategoryViewModel.cs
-Description: 
-Author: UNKNOWN
+Description:View model for passing the category and status message to the view.
+Author: Kavitha
  */
 using Microsoft.AspNetCore.Mvc;
 using System;

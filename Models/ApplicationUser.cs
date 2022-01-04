@@ -1,7 +1,7 @@
 ﻿/*
 File Name: ApplicationUser.cs
-Description: 
-Author: UNKNOWN
+Description:Created the model for user registeration form
+Author: Kavitha
  */
 using Microsoft.AspNetCore.Identity;
 using System;

@@ -43,6 +43,7 @@ namespace FinalProject.Models
 
         public string Year { get; set; }
 
+        [Display(Name="Date Checked Out")]
         public DateTime? CheckOutDate { get; set; }
         
         [Display(Name="Due Date")]
