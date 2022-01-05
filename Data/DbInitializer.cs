@@ -10,7 +10,7 @@ using FinalProject.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace ITLibrary.Data
+namespace FinalProject.Data
 {
     public class DbInitializer : IDbInitializer
     {
@@ -28,9 +28,9 @@ namespace ITLibrary.Data
         {
             try
             {
-                if ((await _dbContext.Database.GetPendingMigrationsAsync()).Any())
+                if ( _dbContext.Database.GetPendingMigrations().Any())
                 {
-                    await _dbContext.Database.MigrateAsync();
+                    _dbContext.Database.Migrate();
                 }
             }
             catch (Exception e)
