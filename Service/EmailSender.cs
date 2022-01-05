@@ -18,11 +18,12 @@ namespace FinalProject.Service
     public class EmailSender : IEmailSender
     {
         public EmailOptions Options { get; set; }
-
+    
         public EmailSender(IOptions<EmailOptions> emailOptions)
         {
-            Options = emailOptions.Value;
+          Options = emailOptions.Value;
         }
+        
         public Task SendEmailAsync(string email, string subject, string message)
         {
             return Execute(Options.SendGridKey, subject, message, email);
