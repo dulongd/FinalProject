@@ -24,16 +24,16 @@ namespace FinalProject.Service
         }
         public Task SendEmailAsync(string email, string subject,string message)
         {
-            return Excute(Options.SendGridKey, subject, message, email);
+            return Execute(Options.SendGridKey, subject, message, email);
         }
 
-        private Task Excute(string sendGridKey, string subject, string message, string email)
+        private Task Execute(string sendGridKey, string subject, string message, string email)
         {
            
             var client = new SendGridClient(sendGridKey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("danielledulong@gmail.com", "ItLibrary"),
+                From = new EmailAddress("danielledulong@gmail.com", "ITLibrary"),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message
