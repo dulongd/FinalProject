@@ -32,9 +32,17 @@ Author: Danielle DuLong, Payal Swarnkar, Savitha Kulaolinathan
                         @if (User.IsInRole("User"))
 
                         {
+                            @if (item.Status.Equals("0"))
+                            {
+                                <input type="button" id="checkout" class="btn btn-primary text-white"
+                                       onclick=checkOut("@item.Id") value="Check Out" />
+                            }
+                            else
+                            {
+                                <input type="button" id="checkout" class="btn btn-primary text-white"
+                                       onclick=checkOut("@item.Id") disabled value="Not Available" />
+                            }
 
-                            <input type="button" id="checkout" class="btn btn-primary text-white"
-                                   onclick=checkOut("@item.Id") value="@Enum.Parse(typeof(Book.EStatus), item.Status)" />
 
                         }
                         else if (User.IsInRole("Admin"))
